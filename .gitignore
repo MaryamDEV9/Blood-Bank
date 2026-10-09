@@ -1,0 +1,70 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Flutter/Dart/Pub related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+flutter_*.png
+*.env
+
+# Android related
+android/app/google-services.json
+android/app/src/debug/google-services.json
+android/app/src/profile/google-services.json
+android/app/src/release/google-services.json
+**/android/**/build/
+**/android/**/.gradle/
+**/android/**/*.keystore
+**/android/**/local.properties
+
+# iOS related
+ios/Runner/GoogleService-Info.plist
+**/ios/**/*.mode1v3
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/xcuserdata/
+**/ios/**/.generated/
+**/ios/**/Flutter/App.framework
+**/ios/**/Flutter/Flutter.framework
+**/ios/**/Flutter/Flutter.podspec
+**/ios/**/Flutter/Generated.xcconfig
+**/ios/**/Flutter/app.flx
+**/ios/**/Flutter/app.zip
+**/ios/**/Flutter/flutter_assets/
+**/ios/**/Flutter/flutter_export_environment.sh
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+# Widget Preview related
+.widget_preview/
+
+# Node.js dependencies
+node_modules/
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
+
+# Firebase service account keys
+service-account*.json
+*-adminsdk-*.json
+
+# Local machine settings
+.vscode/

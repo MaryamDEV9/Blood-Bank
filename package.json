@@ -1,0 +1,20 @@
+{
+  "name": "blood-bank",
+  "version": "1.0.0",
+  "description": "A blood bank network app for Egypt, supporting Arabic and English.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "firebase-admin": "^14.5.0"
+  }
+}

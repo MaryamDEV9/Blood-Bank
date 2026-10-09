@@ -1,0 +1,29 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "blood-bank-724db",
+          "appId": "1:599517156809:android:3e4c85bce8f52ab0870418",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "blood-bank-724db",
+          "configurations": {
+            "android": "1:599517156809:android:3e4c85bce8f52ab0870418",
+            "ios": "1:599517156809:ios:682995d4a1381f2e870418",
+            "web": "1:599517156809:web:ef2451d694f1e49e870418"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "nam5",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

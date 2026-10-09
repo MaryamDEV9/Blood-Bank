@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    // Blood banks: public read, admin write
+    match /blood_banks/{bankId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Users
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+
+      // New user creates own profile: never admin, always 0 points
+      allow create: if isSignedIn()
+        && request.auth.uid == userId
+        && request.resource.data.isAdmin == false
+        && request.resource.data.points == 0;
+
+      // User can only edit whitelisted fields
+      allow update: if isSignedIn()
+        && request.auth.uid == userId
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['name', 'phone', 'bloodType', 'governorate']);
+
+      // Admin can update any profile
+      allow update: if isAdmin();
+    }
+
+    // Blood requests
+    match /blood_requests/{requestId} {
+      // Create: only for yourself, always starting as pending
+      allow create: if isSignedIn()
+        && request.resource.data.requesterId == request.auth.uid
+        && request.resource.data.status == 'pending';
+
+      // Read: owner, admin, or any signed-in user if the request is open
+      allow read: if isSignedIn()
+        && (resource.data.requesterId == request.auth.uid
+            || resource.data.status == 'open'
+            || isAdmin());
+
+      // Owner can cancel (delete) only while still pending
+      allow delete: if isSignedIn()
+        && resource.data.requesterId == request.auth.uid
+        && resource.data.status == 'pending';
+
+      allow update: if isAdmin();
+    }
+
+    // Donations: owner or admin read, admin write
+    match /donations/{donationId} {
+      allow read: if isSignedIn()
+        && (resource.data.userId == request.auth.uid || isAdmin());
+      allow write: if isAdmin();
+    }
+  }
+}

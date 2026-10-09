@@ -1,0 +1,14 @@
+{
+  "@@locale": "ar",
+  "appTitle": "شبكة الدم",
+  "welcome": "مرحباً",
+  "login": "تسجيل الدخول",
+  "register": "إنشاء حساب",
+  "home": "الرئيسية",
+  "bloodBanks": "بنوك الدم",
+  "emergency": "طوارئ",
+  "dashboard": "لوحة التحكم",
+  "chatbot": "المساعد",
+  "admin": "المدير",
+  "profile": "الملف الشخصي"
+}

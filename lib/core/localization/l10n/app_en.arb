@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+  "appTitle": "BloodNet",
+  "welcome": "Welcome",
+  "login": "Login",
+  "register": "Register",
+  "home": "Home",
+  "bloodBanks": "Blood Banks",
+  "emergency": "Emergency",
+  "dashboard": "Dashboard",
+  "chatbot": "Chatbot",
+  "admin": "Admin",
+  "profile": "Profile"
+}
